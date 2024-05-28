@@ -1,9 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
 })
-export class LayoutComponent {
-  constructor() {}
+export class LayoutComponent implements OnInit {
+  constructor(
+    private authServices: AuthService,
+  ) {}
+
+  ngOnInit(): void {
+    this.authServices.getProfile()
+    .subscribe();
+  }
+
+
+
 }
