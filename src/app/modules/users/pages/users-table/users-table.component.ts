@@ -27,7 +27,7 @@ export class UsersTableComponent implements OnInit  {
     })
     this.authServices.user$
     .subscribe(user =>{
-      this.user = user; //aca deberiamos tener la informacion del usuario
+      this.user = user; //aca deberiamos tener la informacion del usuario que esta en el login
     }) 
 
 
