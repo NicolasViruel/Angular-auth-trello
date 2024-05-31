@@ -5,9 +5,11 @@ import { TokenService } from '@services/token.service';
 export const AuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router); // Corregir la variable a minúscula
   const tokenService = inject(TokenService);
-  const token = tokenService.getToken();
+  const isValidToken = tokenService.isValidToken();
 
-  if (!token) {
+  if (!isValidToken) {
+    console.log('isValidtoken from authGuard', isValidToken);
+    
     router.navigate(['/login']); // Usar la instancia correcta del router inyectado
     return false;
   }
