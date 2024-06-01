@@ -37,8 +37,8 @@ export class NavbarComponent {
   }
 
   isValidToken(){
-    console.log(this.tokenService.isValidToken);
-    
+    const isValid = this.tokenService.isValidToken();
+    console.log('Token is valid:', isValid);
   }
 
 

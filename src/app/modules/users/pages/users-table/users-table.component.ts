@@ -21,16 +21,20 @@ export class UsersTableComponent implements OnInit  {
   ) { }
 
   ngOnInit(): void {
-    this.userServices.getUsers()
-    .subscribe(users =>{
-      this.dataSource.init(users);
-    })
+    this.getUsers();
     this.authServices.user$
     .subscribe(user =>{
       this.user = user; //aca deberiamos tener la informacion del usuario que esta en el login
     }) 
 
 
+  }
+
+  getUsers(){
+    this.userServices.getUsers()
+    .subscribe(users =>{
+      this.dataSource.init(users);
+    })
   }
 
 }
